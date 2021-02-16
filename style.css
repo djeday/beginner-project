@@ -1,0 +1,23 @@
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+header, main, footer {
+    border: 2px solid blue;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+nav {
+    border: 2px solid blueviolet;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+h1 {
+    border: 1px solid yellow;
+    padding: 10px;
+}

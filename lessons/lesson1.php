@@ -12,10 +12,7 @@ include 'classes/TableUtils.php';
 <body>
 <table>
     <tr>
-        <td><?= TableUtils::getCells(1, 5); ?></td>
-    </tr>
-    <tr>
-        <td><?= TableUtils::getCells(6, 10); ?></td>
+        <?=TableUtils::renderTable();?>
     </tr>
  </table>
 </body>

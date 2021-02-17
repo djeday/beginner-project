@@ -31,3 +31,19 @@ td {
 table {
     border: 1px solid black;
 }
+
+.red-text {
+    color: red;
+}
+
+.green-text {
+    color: green;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.yellow-text {
+    color: yellow;
+}

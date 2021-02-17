@@ -2,29 +2,41 @@
 
 class TableUtils {
 
-    private static int $minLeftOperand = 1;
+    private static int $minOperand = 1;
 
-    private static int $maxRightOperand = 10;
+    private static int $maxOperand = 10;
 
-    private static string $lineBreak = "<br/>";
+    public static function renderTable() : string {
+        $cells = '';
 
-    private static string $separatorCell = "</td><td>";
-
-    private static function getColumn(int $number) : string {
-        $numbers = [];
-
-        for ($i = self::$minLeftOperand; $i <= self::$maxRightOperand; $i++) {
-            $numbers[] = "$number x $i = " . $number * $i;
+        for ($leftOperand = self::$minOperand; $leftOperand <= self::$maxOperand; $leftOperand++) {
+            $cellContent = self::getCell($leftOperand);
+            $cellContent = self::addTd($cellContent);
+            $cells .= self::addNewRowInTable($leftOperand, $cellContent);
         }
-        return implode(self::$lineBreak, $numbers);
+        return $cells;
     }
 
-    public static function getCells(int $start, int $end) : string {
-        $cells = [];
+    private static function getCell(int $leftOperand) : string {
+        $content = '';
 
-        for ($i = $start; $i <= $end; $i++) {
-            $cells [] = self::getColumn($i);
+        for ($rightOperand = self::$minOperand; $rightOperand <= self::$maxOperand; $rightOperand++) {
+            $result = $leftOperand * $rightOperand;
+            $string = $leftOperand ." x ". $rightOperand ." = ". $result;
+            $content .= self::addBr($string);
         }
-        return implode(self::$separatorCell, $cells);
+        return $content;
+    }
+
+    private static function addNewRowInTable(int $currentCell, string $content) : string {
+        return $currentCell == 5 ? $content . '</tr><tr>' : $content;
+    }
+
+    private static function  addBr(string $text) : string {
+        return '<div>'. $text .'</div>';
+    }
+
+    private static function  addTd(string $text) : string {
+        return '<td>'. $text .'</td>';
     }
 }

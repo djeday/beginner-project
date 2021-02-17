@@ -1,7 +1,3 @@
-<?php
-
-include 'classes/TableUtils.php';
-?>
 <!DOCTYPE  html>
 <html lang="ru">
 <head>
@@ -12,7 +8,14 @@ include 'classes/TableUtils.php';
 <body>
 <table>
     <tr>
-        <?=TableUtils::renderTable(true);?>
+        <?php
+
+            include 'classes/TableUtils.php';
+
+            use Utils\TableUtils;
+
+            echo TableUtils::renderTable(true);
+        ?>
     </tr>
 </table>
 </body>

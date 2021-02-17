@@ -1,5 +1,7 @@
 <?php
 
+namespace Utils;
+
 class TableUtils
 {
 
@@ -14,7 +16,8 @@ class TableUtils
         4 => 'blue-text'
     ];
 
-    public static function renderTable(bool $styled = false): string {
+    public static function renderTable(bool $styled = false): string
+    {
         $cells = '';
 
         for ($leftOperand = self::$minOperand; $leftOperand <= self::$maxOperand; $leftOperand++) {
@@ -24,7 +27,8 @@ class TableUtils
         return $cells;
     }
 
-    private static function getCell(int $leftOperand, bool $styled): string {
+    private static function getCell(int $leftOperand, bool $styled): string
+    {
         $content = '';
 
         for ($rightOperand = self::$minOperand; $rightOperand <= self::$maxOperand; $rightOperand++) {
@@ -33,13 +37,14 @@ class TableUtils
             $result = $leftOperand * $rightOperand;
             $resultStyled = $styled ? self::getNumbersStyled($result) : $result;
 
-            $string = $leftOperandStyled ." x ". $rightOperandStyled ." = ". $resultStyled;
+            $string = $leftOperandStyled . " x " . $rightOperandStyled . " = " . $resultStyled;
             $content .= self::addBr($string);
         }
         return $content;
     }
 
-    private static function addNewRowInTable(int $currentCell, string $content) : string {
+    private static function addNewRowInTable(int $currentCell, string $content): string
+    {
         return $currentCell == 5 ? $content . '</tr><tr>' : $content;
     }
 
@@ -53,13 +58,15 @@ class TableUtils
         return '<td>' . $text . '</td>';
     }
 
-    private static function changeColor(int $number): string {
+    private static function changeColor(int $number): string
+    {
         $class = isset(self::$colors[$number]) ? self::$colors[$number] : 'default-color';
 
         return '<span class="' . $class . '">' . $number . '</span>';
     }
 
-    private static function getNumbersStyled(int $number): string {
+    private static function getNumbersStyled(int $number): string
+    {
         $numbersStyled = '';
         $stringWithNumbers = strval($number);
 

@@ -13,6 +13,7 @@
             <nav>
                 <a href="lessons/lesson1.php">урок 1</a>
                 <a href="lessons/lesson2.php">урок 2</a>
+                <a href="lessons/lesson3.php">урок 3</a>
             </nav>
             <p>Всем привет! Добро пожаловать на мой первый сайт.
             </p>

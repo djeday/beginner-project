@@ -47,3 +47,7 @@ table {
 .yellow-text {
     color: yellow;
 }
+
+.input-field {
+    margin: 10px 0 10px 0;
+}
